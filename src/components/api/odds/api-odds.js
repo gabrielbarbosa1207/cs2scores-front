@@ -2,16 +2,21 @@ import React, { useState, useEffect, useCallback } from "react";
 import { getExternalMatchesData } from "../../../services/api/api";
 import Date from "../../date/Date";
 import styled from "styled-components";
-import GGBET from "../../images/gg-bet-logo.png"
+import GGBET from "../../images/gg-bet-logo.png";
+import Group from "../../images/group.png";
+
+const DataName = styled.p`
+    text-transform: uppercase;
+`
 
 const Time = styled.div`
-    width:  30px;
+    width:  10%;
     text-align:center;
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:10px;
-    margin: 0px 5px;
+    margin: 0px 0px 0px 5%;
 `
 
 const DataRow = styled.div`
@@ -19,17 +24,19 @@ const DataRow = styled.div`
     flex-direction:row;
     align-items:center;
     gap:2px;
-    padding:7px 5px;
+    padding:7px 0px;
     background-color: #252525;
     margin:5px 0px;
     font-size:9px;
-    font-weigth:300;
+    font-weight: 300;
+    height: 65px;
     `
 
 const MatchType = styled.p`
     margin:0px;
     font-size:11px;
     font-weigth:400;
+    text-transform: uppercase;
 `
 
 const CompContainer = styled.div`
@@ -37,12 +44,8 @@ const CompContainer = styled.div`
     gap:10px;
     justify-content:center;
     align-items:center;
-    width:100%;
+    width:70%;
 `
-
-const CompLogo = styled.img`
-    width:30px;`
-
 
 const CompDiv = styled.div`
     display:flex;
@@ -52,28 +55,36 @@ const CompDiv = styled.div`
     align-items:center;
     width:70px;
 `
+const CompLogo = styled.img`
+    width:30px;
+    `
 
 const CompName = styled.div`
     width:60px;
     text-align:center;
-    font-size:8px;
 `
+const Against = styled.img`
+    height: 11px;
+    margin: 0px 3px;
+`
+
 const OperatorDiv = styled.div`
-    width:100%;
+    width:20%;
     display: flex; 
-    justify-content: center;
+    justify-content: right;
     width: 30px;  // Setting both width and height
     height: 30px;
-    align-items:center;
+    align-items:right;
     padding: 1px;
+    margin-right: 7px;
     background-color: #3b3b3c;
     border-radius: 50%; // This ensures a perfect circle
 `
 
 const OperatorLogo = styled.img`
-    width: 20px; // Or maybe 100% if you want it to fill its parent
+    width: fit-content; // Or maybe 100% if you want it to fill its parent
     object-fit: cover; // Ensures the image isn't stretched or compressed
-    border-radius: 50%; // Optional, if you want the image itself to be circular
+    border-radius: 0px; // Optional, if you want the image itself to be circular
 `
 
 const OddsContainer = styled.div`
@@ -107,7 +118,7 @@ function OddsApi(){
             {externalData.map(data =>(
                 <div>
                     <div>
-                      <p>{data.Name}</p>
+                      <DataName>{data.Name}</DataName>
                     </div>
                     <div>
                     {data.Matches.map(match => (
@@ -130,6 +141,7 @@ function OddsApi(){
                                         {match.Bets[0].Odds[0].Value}
                                     </Odd>
                                 </OddsContainer>
+                                <Against src={Group} />
                                 <OddsContainer>
                                 <Odd>
                                         {match.Bets[0].Odds[1].Value}
@@ -141,10 +153,10 @@ function OddsApi(){
                                     </CompName>
                                 </CompDiv>
                                 </OddsContainer>
+                            </CompContainer>
                                 <OperatorDiv>
                                     <OperatorLogo src={GGBET}  alt="gg=bet-logo"/>
                                 </OperatorDiv>
-                            </CompContainer>
                         </DataRow>
                     ))}
 

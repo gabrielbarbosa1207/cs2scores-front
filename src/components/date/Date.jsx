@@ -9,19 +9,21 @@ const DateWrapper = styled.div`
   flex-direction: column;
   align-items: center; // Center children horizontally
   justify-content: center; // Center children vertically
+  row-gap: 5px;
 `;
 
 const TimeText = styled.span`
   color: white;
-  font-weight: 700;
+  font-weight: 600;
   display: block;
+  font-size: 8px;
 `;
 
 const DateText = styled.span`
   color: white;
   font-weight: 400;  // lighter compared to the time
   display: block;
-  font-size: 0.8em;  // making it smaller
+  font-size: 8px;  // making it smaller
 `;
 
 function Date({ timestamp }) {

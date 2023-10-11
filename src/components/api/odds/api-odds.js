@@ -10,13 +10,13 @@ const DataName = styled.p`
 `
 
 const Time = styled.div`
-    width:  10%;
+    width:  15%;
     text-align:center;
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:10px;
-    margin: 0px 0px 0px 5%;
+    margin: 0px 0px 0px 3%;
 `
 
 const DataRow = styled.div`
@@ -69,20 +69,19 @@ const Against = styled.img`
 `
 
 const OperatorDiv = styled.div`
-    width:20%;
+    width:15%; // Setting both width and height
     display: flex; 
-    justify-content: right;
-    width: 30px;  // Setting both width and height
+    justify-content: center;
     height: 30px;
-    align-items:right;
-    padding: 1px;
-    margin-right: 7px;
+    margin-right: 3%;
+    padding: 0px;
     background-color: #3b3b3c;
     border-radius: 50%; // This ensures a perfect circle
 `
 
 const OperatorLogo = styled.img`
-    width: fit-content; // Or maybe 100% if you want it to fill its parent
+    width: auto; // Or maybe 100% if you want it to fill its parent
+    align-items: center;
     object-fit: cover; // Ensures the image isn't stretched or compressed
     border-radius: 0px; // Optional, if you want the image itself to be circular
 `
@@ -154,9 +153,9 @@ function OddsApi(){
                                 </CompDiv>
                                 </OddsContainer>
                             </CompContainer>
-                                <OperatorDiv>
-                                    <OperatorLogo src={GGBET}  alt="gg=bet-logo"/>
-                                </OperatorDiv>
+                            <OperatorDiv>
+                                <OperatorLogo src={GGBET}  alt="gg=bet-logo"/>
+                            </OperatorDiv>
                         </DataRow>
                     ))}
 

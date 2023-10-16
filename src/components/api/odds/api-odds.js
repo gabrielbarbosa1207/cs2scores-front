@@ -4,47 +4,104 @@ import Date from "../../date/Date";
 import styled from "styled-components";
 import GGBET from "../../images/gg-bet-logo.png";
 import Group from "../../images/group.png";
+import Header from "../../Header/index";
 
 const DataName = styled.p`
-    text-transform: uppercase;
+    @media screen and (max-width: 750px) {
+        text-transform: uppercase;
+    }    
+    
+    @media screen and (min-width: 751px) {
+        text-transform: uppercase;
+        font-weight: 500;
+    }
 `
 
 const Time = styled.div`
-    width:  15%;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    margin: 0px 0px 0px 3%;
+    @media screen and (max-width: 750px) {
+        box-sizing: border-box;
+        width:  20%;
+        text-align:center;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        margin-left: 3%;
+    }  
+    
+    @media screen and (min-width: 751px) {
+        box-sizing: border-box;
+        width:  20%;
+        text-align:center;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        gap:10px;
+        margin-left: 3%;
+    }
 `
 
 const DataRow = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction:row;
     align-items:center;
     gap:2px;
-    padding:7px 0px;
+    padding:7px;
     background-color: #252525;
     margin:5px 0px;
     font-size:9px;
     font-weight: 300;
-    height: 65px;
+    height: 190px;
+
+    @media screen and (min-width: 751px) {
+        height: 140px;
+    }
     `
 
 const MatchType = styled.p`
-    margin:0px;
-    font-size:11px;
-    font-weigth:400;
-    text-transform: uppercase;
+    @media screen and (max-width: 750px) {
+        margin:0px;
+        font-size:16px;
+        font-weigth:400;
+        text-transform: uppercase; 
+}   
+    @media screen and (min-width: 751px) {
+        margin:0px;
+        font-size:18px;
+        font-weigth:400;
+        text-transform: uppercase; 
+        min-width: 100px;
+    }
 `
 
 const CompContainer = styled.div`
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    align-items:center;
-    width:70%;
+    @media screen and (max-width: 750px) {
+        box-sizing: border-box;
+        display:flex;
+        flex-direction: column;
+        gap:12px;
+        justify-content:center;
+        align-items:center;
+        width:55%;
+        max-height: 100%;
+    }
+
+    @media screen and (min-width: 751px) {
+        box-sizing: border-box;
+        display:flex;
+        flex-direction: row;
+        gap:12px;
+        justify-content:center;
+        align-items:center;
+        width:65%;
+        max-height: 100%;
+
+        & > :nth-child(3) {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
 `
 
 const CompDiv = styled.div`
@@ -54,47 +111,83 @@ const CompDiv = styled.div`
     justify-content:center;
     align-items:center;
     width:70px;
+    
+    @media screen and (min-width: 751px) {
+        width: 100px;
+        margin: 0 10px;
+        gap:12px;
+    }
 `
+
 const CompLogo = styled.img`
-    width:30px;
+
+content: url(${props => props.src}) !important;
+content: url(${props => props.fallbackImage});
+
+    @media screen and (max-width: 750px) {
+        width:30px;
+        height:30px;
+    }
+    
+    @media screen and (min-width: 751px) {
+        width: 60px;
+        height: 60px;
+    }
     `
 
 const CompName = styled.div`
     width:60px;
     text-align:center;
+    font-size: 10px;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 751px) {
+        width: 100%;
+        font-size: 12px;
+    }
 `
+
 const Against = styled.img`
     height: 11px;
     margin: 0px 3px;
 `
 
 const OperatorDiv = styled.div`
+    box-sizing: border-box;
     width:15%; // Setting both width and height
     display: flex; 
     justify-content: center;
-    height: 30px;
-    margin-right: 3%;
     padding: 0px;
-    background-color: #3b3b3c;
     border-radius: 50%; // This ensures a perfect circle
 `
 
 const OperatorLogo = styled.img`
-    width: auto; // Or maybe 100% if you want it to fill its parent
+    width: 100%; // Or maybe 100% if you want it to fill its parent
     align-items: center;
-    object-fit: cover; // Ensures the image isn't stretched or compressed
     border-radius: 0px; // Optional, if you want the image itself to be circular
+
+    @media screen and (min-width: 751px) {
+        width: 75%;
+    }
 `
 
 const OddsContainer = styled.div`
     display:flex;
-    gap:7px; 
-    align-items:center
+    gap:10px; 
+    align-items:center;
     `
+    
 const Odd = styled.div`
     border:1px solid red;
     border-radius:15px;
     padding: 5px 10px;
+
+    @media screen and (min-width: 751px) {
+        font-size: 12px;
+        border:1px solid red;
+        border-radius:15px;
+        padding: 5px 10px;
+    }
 `
 
 function OddsApi(){
@@ -114,6 +207,7 @@ function OddsApi(){
 
     return(
         <div>
+            <Header />
             {externalData.map(data =>(
                 <div>
                     <div>
@@ -124,14 +218,14 @@ function OddsApi(){
                         <DataRow>
                             <Time>
                                 <MatchType>
-                                {match.MatchType}
+                                    {match.MatchType}
                                 </MatchType>
                                 <Date timestamp={match.StartDate}></Date>
                             </Time>
                             <CompContainer>
                                 <OddsContainer>
                                     <CompDiv>
-                                        <CompLogo  src={`https://${match.Competitors[0].Logo}` } />
+                                        <CompLogo  src={`https://${match.Competitors[0].Logo}` } fallbackImage={GGBET} alt="Logo Competidor"/>
                                         <CompName>
                                             {match.Competitors[0].Name}
                                         </CompName>
@@ -142,15 +236,15 @@ function OddsApi(){
                                 </OddsContainer>
                                 <Against src={Group} />
                                 <OddsContainer>
+                                    <CompDiv>
+                                        <CompLogo src={`https://${match.Competitors[1].Logo}`} fallbackImage={GGBET} alt="Logo Competidor"/>
+                                        <CompName>
+                                            {match.Competitors[1].Name}
+                                        </CompName>
+                                    </CompDiv>
                                 <Odd>
                                         {match.Bets[0].Odds[1].Value}
                                     </Odd>
-                                <CompDiv>
-                                    <CompLogo alt={GGBET} src={`https://${match.Competitors[1].Logo}`} />
-                                    <CompName>
-                                        {match.Competitors[1].Name}
-                                    </CompName>
-                                </CompDiv>
                                 </OddsContainer>
                             </CompContainer>
                             <OperatorDiv>

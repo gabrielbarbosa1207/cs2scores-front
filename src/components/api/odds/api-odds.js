@@ -31,7 +31,7 @@ const Time = styled.div`
     
     @media screen and (min-width: 751px) {
         box-sizing: border-box;
-        width:  20%;
+        width:  25%;
         text-align:center;
         display:flex;
         flex-direction:row;
@@ -55,7 +55,7 @@ const DataRow = styled.div`
     height: 190px;
 
     @media screen and (min-width: 751px) {
-        height: 140px;
+        height: 100px;
     }
     `
 
@@ -94,7 +94,7 @@ const CompContainer = styled.div`
         gap:12px;
         justify-content:center;
         align-items:center;
-        width:65%;
+        width:60%;
         max-height: 100%;
 
         & > :nth-child(3) {
@@ -113,9 +113,9 @@ const CompDiv = styled.div`
     width:70px;
     
     @media screen and (min-width: 751px) {
-        width: 100px;
         margin: 0 10px;
         gap:12px;
+        width: 140px;
     }
 `
 
@@ -130,8 +130,8 @@ content: url(${props => props.fallbackImage});
     }
     
     @media screen and (min-width: 751px) {
-        width: 60px;
-        height: 60px;
+        width: 25%;
+        height: 25%;
     }
     `
 
@@ -153,12 +153,23 @@ const Against = styled.img`
 `
 
 const OperatorDiv = styled.div`
-    box-sizing: border-box;
-    width:15%; // Setting both width and height
-    display: flex; 
-    justify-content: center;
-    padding: 0px;
-    border-radius: 50%; // This ensures a perfect circle
+    @media screen and (max-width: 750px) {
+        box-sizing: border-box;
+        width:25%; // Setting both width and height
+        display: flex; 
+        justify-content: center;
+        padding: 0px;
+        border-radius: 50%; // This ensures a perfect circle
+    }
+
+    @media screen and (min-width: 751px) {
+        box-sizing: border-box;
+        width:15%; // Setting both width and height
+        display: flex; 
+        justify-content: center;
+        padding: 0px;
+        border-radius: 50%; // This ensures a perfect circle
+    }
 `
 
 const OperatorLogo = styled.img`
@@ -167,7 +178,7 @@ const OperatorLogo = styled.img`
     border-radius: 0px; // Optional, if you want the image itself to be circular
 
     @media screen and (min-width: 751px) {
-        width: 75%;
+        width: 55%;
     }
 `
 

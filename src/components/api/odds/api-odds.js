@@ -121,9 +121,6 @@ const CompDiv = styled.div`
 
 const CompLogo = styled.img`
 
-content: url(${props => props.src}) !important;
-content: url(${props => props.fallbackImage});
-
     @media screen and (max-width: 750px) {
         width:30px;
         height:30px;
@@ -236,7 +233,13 @@ function OddsApi(){
                             <CompContainer>
                                 <OddsContainer>
                                     <CompDiv>
-                                        <CompLogo  src={`https://${match.Competitors[0].Logo}` } fallbackImage={GGBET} alt="Logo Competidor"/>
+                                        <CompLogo
+                                            src={`https://${match.Competitors[0].Logo}`}
+                                            alt="Logo Competidor"
+                                            onError={(e) => {
+                                                e.target.src = GGBET;
+                                            }}
+                                        />
                                         <CompName>
                                             {match.Competitors[0].Name}
                                         </CompName>
@@ -248,7 +251,13 @@ function OddsApi(){
                                 <Against src={Group} />
                                 <OddsContainer>
                                     <CompDiv>
-                                        <CompLogo src={`https://${match.Competitors[1].Logo}`} fallbackImage={GGBET} alt="Logo Competidor"/>
+                                        <CompLogo
+                                            src={`https://${match.Competitors[0].Logo}`}
+                                            alt="Logo Competidor"
+                                            onError={(e) => {
+                                                e.target.src = GGBET;
+                                            }}
+                                        />
                                         <CompName>
                                             {match.Competitors[1].Name}
                                         </CompName>

@@ -11,6 +11,7 @@ html,body{
     background-color:#1c1c1c;
     color:white;
     font-family: 'Inter', sans-serif;
+    background-Color: #2E2D30;
   }
 `;
 

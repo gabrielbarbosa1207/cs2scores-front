@@ -3,13 +3,15 @@ import moment from "moment"
 import styled from "styled-components"
 
 const DateWrapper = styled.div`
-  text-align: left;
-  width: 100%;  // To ensure the width fills its container
-  display: flex;
-  flex-direction: row;
-  align-items: center; // Center children horizontally
-  justify-content: center; // Center children vertically
-  row-gap: 5px;
+  @media screen and (max-width: 749px) {  
+    text-align: left;
+    width: 100%;  // To ensure the width fills its container
+    display: flex;
+    flex-direction: row;
+    align-items: center; // Center children horizontally
+    justify-content: center; // Center children vertically
+    column-gap: 5px;
+  }
 
   @media screen and (min-width: 751px) {
     text-align: left;

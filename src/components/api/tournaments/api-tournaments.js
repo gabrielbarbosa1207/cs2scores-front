@@ -1,19 +1,43 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { getExternalMatchesData } from "../../../services/api/api";
-import Date from "../../date/Date";
+import TournamentDate from "../../date/TournamentDate";
 import styled from "styled-components";
+import SetaBaixo from "../../images/SetaBaixo.svg";
+
+const TournamentsContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-X: hidden;
+`
+
+const MatchType = styled.div`
+    background-Color: green;
+    width: 20%;
+`
+
+const InfoTournaments = styled.div`
+    background-Color: grey;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+`
 
 const DataName = styled.div`
     background-Color: black;
 `
 
-const MatchType = styled.div`
-    background-Color: black;
+const ContainerArrow = styled.div`
+    width: 10%
 `
 
-const StartDate = styled.div`
-    background-Color: black;
+const Arrow = styled.img`
+    margin: auto auto;
+    width: 50%;
 `
+
 
 function TournamentsApi() {
     
@@ -34,20 +58,22 @@ function TournamentsApi() {
         <div>
             {externalData.map(data => (
                 <div>
-                    <DataName>{data.Name}</DataName>
-                        <div>
-                            {data.Matches.map(match => (
-                                <><MatchType>
-                                    {match.MatchType}
-                                </MatchType><div>
-                                        <StartDate>
-                                            {match.StartDate}
-                                        </StartDate>
-                                    </div></>
-                            ))}
-                        </div>
+                    {data.Matches.map(match => (
+                        <TournamentsContainer>
+                            <MatchType>
+                                {match.MatchType}
+                            </MatchType>
+                            <InfoTournaments>
+                                <DataName>{data.Name}</DataName>
+                                <TournamentDate timestamp={match.StartDate} />
+                            </InfoTournaments>
+                            <ContainerArrow>
+                                <Arrow src={SetaBaixo} alt="seta para baixo"/>
+                            </ContainerArrow>
+                        </TournamentsContainer>
+                    ))}
                 </div>
-                ))}
+            ))}
         </div>
     )
 }

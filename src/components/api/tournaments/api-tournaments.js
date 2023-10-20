@@ -57,7 +57,7 @@ const Arrow = styled.img`
 
 const ExpandableContainer = styled.div`
     ${StandardStyleContainers}
-    margin: 0px;
+    margin: 0px 0px 4px 0px;
     display: none;
 `
 
@@ -83,7 +83,7 @@ function TournamentsApi() {
                 <div key={dataIndex}>
                     {data.Matches.map((match, matchIndex) => (
                         <BothContainers key={matchIndex}>
-                            <TournamentsContainer>
+                            <TournamentsContainer id={`TournamentsContainer-${dataIndex}-${matchIndex}`}>
                                 <MatchType>
                                     {match.MatchType}
                                 </MatchType>
@@ -99,10 +99,12 @@ function TournamentsApi() {
                                         alt="seta para baixo"
                                         onClick={() => {
                                             const Expandable = document.getElementById(`expandable-${dataIndex}-${matchIndex}`);
+                                            const TournamentsContainer = document.getElementById(`TournamentsContainer-${dataIndex}-${matchIndex}`);
                                             if (Expandable.style.display === '' || Expandable.style.display === 'none') {
                                                 Expandable.style.display = 'flex';
                                                 document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transform = 'rotate(180deg)';
                                                 document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transition = 'transform .3s';
+                                                TournamentsContainer.style.marginBottom = '0px';
                                             } else {
                                                 Expandable.style.display = 'none';
                                                 document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transform = 'rotate(360deg)';

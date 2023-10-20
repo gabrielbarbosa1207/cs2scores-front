@@ -30,10 +30,13 @@ const TournamentsContainer = styled.div`
 `
 
 const MatchTypeContainer = styled.div`
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media screen and (max-width:749px) {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+    }
 
     @media screen and (min-width: 750px) {
         width: 20%;
@@ -67,11 +70,13 @@ const InfoTournaments = styled.div`
         row-gap: 4px;
 }
     @media screen and (min-width: 751px) {
+        box-sizing: border-box;
         display:flex;
         flex-direction: row-reverse;
         align-items: center;
         justify-content: center;
         width: 80%;
+        padding-right: 5%;
     }    
 `
 

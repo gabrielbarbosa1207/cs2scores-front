@@ -79,10 +79,10 @@ function TournamentsApi() {
     
     return (
         <div>
-            {externalData.map(data => (
-                <div>
-                    {data.Matches.map(match => (
-                        <BothContainers>
+            {externalData.map((data, dataIndex) => (
+                <div key={dataIndex}>
+                    {data.Matches.map((match, matchIndex) => (
+                        <BothContainers key={matchIndex}>
                             <TournamentsContainer>
                                 <MatchType>
                                     {match.MatchType}
@@ -92,23 +92,27 @@ function TournamentsApi() {
                                     <TournamentDate timestamp={match.StartDate} />
                                 </InfoTournaments>
                                 <ContainerArrow>
-                                    <Arrow id='arrow' src={SetaBaixo} alt="seta para baixo" onClick={() => {
-                                        const Expandables = document.querySelectorAll('#expandable');
-                                        Expandables.forEach(Expandable => {
-                                        if (Expandable.style.display === '' || Expandable.style.display === 'none') {
-                                            Expandable.style.display = 'flex';
-                                            document.getElementById('arrow').style.transform = 'rotate(180deg)';
-                                            document.getElementById('arrow').style.transition = 'transform .3s'; 
-                                        }
-                                        else {
-                                            Expandable.style.display = 'none';
-                                            document.getElementById('arrow').style.transform = 'rotate(360deg)';
-                                            document.getElementById('arrow').style.transition = 'transform .3s'; 
-                                        }
-                                    })}}/>
+                                    <Arrow
+                                        className='arrow'
+                                        id={`arrow-${dataIndex}-${matchIndex}`}
+                                        src={SetaBaixo}
+                                        alt="seta para baixo"
+                                        onClick={() => {
+                                            const Expandable = document.getElementById(`expandable-${dataIndex}-${matchIndex}`);
+                                            if (Expandable.style.display === '' || Expandable.style.display === 'none') {
+                                                Expandable.style.display = 'flex';
+                                                document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transform = 'rotate(180deg)';
+                                                document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transition = 'transform .3s';
+                                            } else {
+                                                Expandable.style.display = 'none';
+                                                document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transform = 'rotate(360deg)';
+                                                document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transition = 'transform .3s';
+                                            }
+                                        }}
+                                    />
                                 </ContainerArrow>
                             </TournamentsContainer>
-                            <ExpandableContainer id="expandable">
+                            <ExpandableContainer id={`expandable-${dataIndex}-${matchIndex}`} className="expandable">
 
 
 

@@ -51,7 +51,7 @@ const MatchTypeContainer = styled.div`
         @media screen and (min-width: 751px) {
             background-Color: #22611D;
             color: #13FF00;
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 300;
             line-height: 13.7px;
             border-radius: 11px;
@@ -90,6 +90,7 @@ const DataName = styled.div`
         font-size: 14px;
     }
     @media screen and (min-width: 751px) {
+        text-align: center;
         width: 50%;
         font-family: 'Roboto';
         font-weight: 600;

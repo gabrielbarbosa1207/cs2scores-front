@@ -10,7 +10,7 @@ html,body{
     padding: 20px 8px 40px 8px;
     background-color:#1c1c1c;
     color:white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto';
     background-Color: #2E2D30;
   }
 `;

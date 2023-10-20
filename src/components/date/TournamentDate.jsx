@@ -24,11 +24,12 @@ const DateWrapper = styled.div`
 
 
 const TimeText = styled.span`
-  color: white;
-  font-weight: 600;
-  display: block;
-  font-size: 12px;
-
+  @media screen and (max-width: 750pz) {
+    color: white;
+    font-weight: 600;
+    display: block;
+    font-size: 12px;
+}
   @media screen and (min-width: 751px) {
     width: 50%;
     font-size: 16px;

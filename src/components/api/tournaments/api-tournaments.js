@@ -9,7 +9,7 @@ const BothContainers = styled.div`
         display: flex;
         flex-direction: column;
 }
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 751px) {
         display: flex;
         flex-direction: row;
     }
@@ -30,7 +30,7 @@ const TournamentsContainer = styled.div`
 `
 
 const MatchTypeContainer = styled.div`
-    @media screen and (max-width:749px) {
+    @media screen and (max-width: 750px) {
         width: 20%;
         display: flex;
         justify-content: center;
@@ -38,7 +38,7 @@ const MatchTypeContainer = styled.div`
         padding-left: 10px;
     }
 
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 751px) {
         width: 20%;
         display: flex;
         align-items: center;
@@ -51,6 +51,9 @@ const MatchTypeContainer = styled.div`
         @media screen and (min-width: 751px) {
             background-Color: #22611D;
             color: #13FF00;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 13.7px;
             border-radius: 11px;
             height: 40%;
             width: 50%;
@@ -81,8 +84,12 @@ const InfoTournaments = styled.div`
 `
 
 const DataName = styled.div`
-    text-align: center;
-    @media screen and (min-width: 750px) {
+    @media screen and (max-width: 750px) {
+        text-align: center;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    @media screen and (min-width: 751px) {
         width: 50%;
         font-family: 'Roboto';
         font-weight: 600;
@@ -164,6 +171,7 @@ function TournamentsApi() {
                                                 Expandable.style.display = 'none';
                                                 document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transform = 'rotate(360deg)';
                                                 document.getElementById(`arrow-${dataIndex}-${matchIndex}`).style.transition = 'transform .3s';
+                                                TournamentsContainer.style.marginBottom = '4px';
                                             }
                                         }}
                                     />

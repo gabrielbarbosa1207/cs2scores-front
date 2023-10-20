@@ -45,16 +45,16 @@ const MatchTypeContainer = styled.div`
     `
     
     const MatchType = styled.div`
-    @media screen and (min-width: 751px) {
-        background-Color: #22611D;
-        color: #13FF00;
-        border-radius: 11px;
-        height: 40%;
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        @media screen and (min-width: 751px) {
+            background-Color: #22611D;
+            color: #13FF00;
+            border-radius: 11px;
+            height: 40%;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 `
 
 const InfoTournaments = styled.div`

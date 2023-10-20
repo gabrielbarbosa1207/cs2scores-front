@@ -14,7 +14,11 @@ const DateWrapper = styled.div`
   }
 
   @media screen and (min-width: 751px) {
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    text-align: center;
   }
 `;
 
@@ -26,8 +30,10 @@ const TimeText = styled.span`
   font-size: 12px;
 
   @media screen and (min-width: 751px) {
+    width: 50%;
     font-size: 16px;
     font-weight: 400;
+    margin-right: 10px;
   }
   `;
   

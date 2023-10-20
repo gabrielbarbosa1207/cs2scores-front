@@ -5,8 +5,14 @@ import styled, { css } from "styled-components";
 import SetaBaixo from "../../images/SetaBaixo.svg";
 
 const BothContainers = styled.div`
-    display: flex;
-    flex-direction: column;
+    @media screen and (max-width: 750px) {
+        display: flex;
+        flex-direction: column;
+}
+    @media screen and (min-width: 750px) {
+        display: flex;
+        flex-direction: row;
+    }
 `
 
 const StandardStyleContainers = css`
@@ -23,31 +29,73 @@ const TournamentsContainer = styled.div`
     ${StandardStyleContainers}
 `
 
-const MatchType = styled.div`
+const MatchTypeContainer = styled.div`
     width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 750px) {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    `
+    
+    const MatchType = styled.div`
+    @media screen and (min-width: 751px) {
+        background-Color: #22611D;
+        color: #13FF00;
+        border-radius: 11px;
+        height: 40%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 const InfoTournaments = styled.div`
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    row-gap: 4px;
+    @media screen and (max-width: 750px) {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        row-gap: 4px;
+}
+    @media screen and (min-width: 751px) {
+        display:flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+    }    
 `
 
 const DataName = styled.div`
     text-align: center;
+    @media screen and (min-width: 750px) {
+        width: 50%;
+        font-family: 'Roboto';
+        font-weight: 600;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
 `
 
 const ContainerArrow = styled.div`
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media screen and (max-width: 750px) {    
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+    @media screen and (min-width: 751px) {
+        display: none;
+    }
 `
     
 const Arrow = styled.img`
@@ -84,9 +132,11 @@ function TournamentsApi() {
                     {data.Matches.map((match, matchIndex) => (
                         <BothContainers key={matchIndex}>
                             <TournamentsContainer id={`TournamentsContainer-${dataIndex}-${matchIndex}`}>
-                                <MatchType>
-                                    {match.MatchType}
-                                </MatchType>
+                                <MatchTypeContainer>
+                                    <MatchType>
+                                        {match.MatchType}
+                                    </MatchType>
+                                </MatchTypeContainer>
                                 <InfoTournaments>
                                     <DataName>{data.Name}</DataName>
                                     <TournamentDate timestamp={match.StartDate} />

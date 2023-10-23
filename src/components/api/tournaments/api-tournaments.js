@@ -48,6 +48,20 @@ const MatchTypeContainer = styled.div`
     `
     
     const MatchType = styled.div`
+        @media screen and (max-width: 750px) {
+            background-Color: #22611D;
+            color: #13FF00;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 13.7px;
+            border-radius: 11px;
+            height: 40%;
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         @media screen and (min-width: 751px) {
             background-Color: #22611D;
             color: #13FF00;

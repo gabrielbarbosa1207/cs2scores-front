@@ -3,6 +3,7 @@ import { getExternalMatchesData } from "../../../services/api/api";
 import TournamentDate from "../../date/TournamentDate";
 import styled, { css } from "styled-components";
 import SetaBaixo from "../../images/SetaBaixo.svg";
+import Header from "../../Header";
 
 const BothContainers = styled.div`
     @media screen and (max-width: 750px) {
@@ -154,6 +155,7 @@ function TournamentsApi() {
     
     return (
         <div>
+            <Header />
             {externalData.map((data, dataIndex) => (
                 <div key={dataIndex}>
                     {data.Matches.map((match, matchIndex) => (

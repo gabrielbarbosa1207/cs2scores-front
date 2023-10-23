@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import GGBET from "../images/gg-bet-logo.png";
+import Navbar from "./navbar/navbar";
 
 const LogoHeader = styled.img`
     @media screen and (max-width: 750px) {
@@ -16,6 +17,7 @@ function Header() {
     return (
         <div>
             <LogoHeader src={GGBET} alt="logo CS Header"/>
+            <Navbar />
         </div>
     )
 }

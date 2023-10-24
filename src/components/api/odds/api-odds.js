@@ -252,7 +252,7 @@ function OddsApi(){
                                 <OddsContainer>
                                     <CompDiv>
                                         <CompLogo
-                                            src={`https://${match.Competitors[0].Logo}`}
+                                            src={`https://${match.Competitors[1].Logo}`}
                                             alt="Logo Competidor"
                                             onError={(e) => {
                                                 e.target.src = GGBET;

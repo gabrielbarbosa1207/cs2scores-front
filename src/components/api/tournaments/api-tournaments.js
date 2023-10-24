@@ -103,6 +103,7 @@ const DataName = styled.div`
         text-align: center;
         font-weight: 700;
         font-size: 14px;
+        max-width: 80%;
     }
     @media screen and (min-width: 751px) {
         text-align: center;

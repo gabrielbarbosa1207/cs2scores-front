@@ -24,7 +24,7 @@ const DateWrapper = styled.div`
 
 
 const TimeText = styled.span`
-  @media screen and (max-width: 750pz) {
+  @media screen and (max-width: 750px) {
     color: white;
     font-weight: 600;
     display: block;

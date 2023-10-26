@@ -127,8 +127,8 @@ const CompLogo = styled.img`
     }
     
     @media screen and (min-width: 751px) {
-        width: 25%;
-        height: 25%;
+        max-width: 45px;
+        max-height: 45px;
     }
     `
 

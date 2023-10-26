@@ -5,7 +5,6 @@ import styled from "styled-components";
 const NavBar = styled.nav`
     display: flex;
     margin: 23px auto;
-    min-width: 75%;
     align-items: center;
     justify-content: center;
     background-color: #252525;
@@ -18,16 +17,27 @@ const NavBar = styled.nav`
         text-decoration: none;
         color: white;
     }
+    @media screen and (max-width: 750px) {
+        max-width: 75%;
+    }
+
+    @media screen and (min-width: 751px) {
+        max-width: 45%;
+    }
     `;
     
     const NavBarItems = styled.div`
         padding: 20px 0;
-        background-color: ${({ selected }) => selected ? 'red' : 'inherit'};
+        background-color: ${({ selected }) => selected ? '#C30202' : 'inherit'};
         color: ${({ selected }) => selected ? 'white' : 'inherit'};
         border-radius: ${({ selected }) => selected ? '16px' : 'inherit'};
 
         & + & {
             padding: ${({ selected }) => selected ? '0' : '20px 0'};
+        }
+        &:hover {
+            background-color: #C30202;
+            border-radius: 16px;
         }
     `;
 
